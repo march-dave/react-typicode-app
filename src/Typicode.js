@@ -1,31 +1,36 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loader from "react-loader-spinner";
 
 function Typicode() {
     let [typicodes, setTypicodes] = useState([]);
-
-    let [loading, setLoading] = useState(false);
+    let [loading, setLoading] = useState(5);
 
     useEffect( ()=> {
 
-        setLoading(false);
+        setLoading(5);
 
         axios.get('https://jsonplaceholder.typicode.com/posts')
         .then((result) => {
-            console.log(result.data);
-
-            setLoading(true);
+            setLoading(0);
             setTypicodes(  [...typicodes, ...result.data] );
-
         });
     }, []);
 
     return(
         <div className='box'>
 
-        { loading == true 
-            ?   
+        <Loader
+            type="Circles"
+            color="gray"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+        />
+
+        { loading === 0
+            ?
             <table>
             <thead>
                 <th>title</th>
