@@ -25,11 +25,6 @@ th[scope="row"] {
     background-color: #d7d9f2;
 }
 
-caption {
-    padding: 10px;
-    caption-side: bottom;
-}
-
 table {
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
@@ -38,10 +33,7 @@ table {
     font-size: .8rem;
 }
 
-
 .box {
   margin: auto;
   padding: 5px;
 }
-
-
